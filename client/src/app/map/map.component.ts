@@ -69,7 +69,7 @@ export class MapComponent implements AfterViewInit {
             });
 
             marker.on('click', () => {
-              this.router.navigate(['/local-detail/' + localData?.globalIdLocal])
+              this.router.navigate(['/cities/local-detail/' + localData?.globalIdLocal])
             })
           });
         })
