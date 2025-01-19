@@ -49,7 +49,7 @@ Siga os passos abaixo para configurar e executar a aplicação:
 
 ### 1. **Clonar o Repositório**
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone https://github.com/oGarfield/TempoCerto
 cd Metereologia-mperes
 ```
 
