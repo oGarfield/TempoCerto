@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-sm-6 left">
+    <app-map></app-map>
+  </div>
+
+  <div class="col-sm-5 right">
+    <div class="tab">
+      <!-- <button class="tablinks" [class.active]="activeTab == 'Today'" (click)="weatherDay('Today')">Today</button>
+      <button class="tablinks" onclick="weatherDay(event, 'Tomorrow')">Tomorrow</button>
+      <button class="tablinks" onclick="weatherDay(event, 'In2Days')">In 2 days</button> -->
+    </div>
+      <tabset>
+        <tab heading="Today" id="tab1">
+          <div id="dropdown" class="list-group">
+              <a [routerLink]="['cities/local-detail', data.globalIdLocal]" class="list-group-item d-flex justify-content-between align-items-center tabcontent" *ngFor="let data of dataForecastToday">
+                {{data.local.local}}
+                <span>
+                  <img [src]="data.img" width="35" height="35">
+                  {{data.tMin}}ºC - {{data.tMax}}ºC
+                </span>
+              </a>
+          </div>
+        </tab>
+        <tab heading="Tomorrow" id="tab2">
+          <div id="dropdown" class="list-group">
+              <a [routerLink]="['local-detail', data.globalIdLocal]" class="list-group-item d-flex justify-content-between align-items-center tabcontent" *ngFor="let data of dataForecastTomorrow">
+                {{data.local.local}}
+                <span>
+                  <img [src]="data.img" width="35" height="35">
+                  {{data.tMin}}ºC - {{data.tMax}}ºC
+                </span>
+              </a>
+          </div>
+        </tab>
+        <tab heading="In 2 Days" id="tab3">
+          <div id="dropdown" class="list-group">
+              <a [routerLink]="['local-detail', data.globalIdLocal]" class="list-group-item d-flex justify-content-between align-items-center tabcontent" *ngFor="let data of dataForecastIn2Days">
+                {{data.local.local}}
+                <span>
+                  <img [src]="data.img" width="35" height="35">
+                  {{data.tMin}}ºC - {{data.tMax}}ºC
+                </span>
+              </a>
+          </div>
+        </tab>
+      </tabset>
+    <div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- <table border="1" >
+  <tr>
+    <th>Local</th>
+    <th>Temperatura</th>
+  </tr>
+  <tr *ngFor="let data of dataForecast">
+    <td>{{data.local.local}}</td>
+    <span><td>{{data.tMax}}</td></span>
+  </tr>
+</table> -->

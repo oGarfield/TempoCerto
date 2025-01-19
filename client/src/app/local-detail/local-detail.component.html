@@ -1,0 +1,598 @@
+<app-nav></app-nav>
+
+<app-back></app-back>
+
+<section class="vh-100" *ngIf="distrit">
+    <div>
+      <tabset>
+
+        
+<!-- ___________         ___             
+      \__    ___/___   __| _/____  ___.__.
+        |    | /  _ \ / __ |\__  \<   |  |
+        |    |(  <_> ) /_/ | / __ \\___  |
+        |____| \____/\____ |(____  / ____|
+                          \/     \/\/      -->
+
+        <tab heading="Today" id="tab1"> <!-- Today -->
+          <div class="container py-5 h-100">
+  
+            <div class="row d-flex justify-content-center align-items-center h-100" style="color: #282828;">
+              <div class="col-md-9 col-lg-7 col-xl-5">
+        
+                <div class="card mb-4 gradient-custom" style="border-radius: 25px;">
+                  <div class="card-body p-4">
+        
+                    <div id="demo1" class="carousel slide" data-ride="carousel">
+                      <!-- Indicators -->
+                      <ul class="carousel-indicators mb-0">
+                        <li data-target="#demo1" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo1" data-slide-to="1"></li>
+                        <li data-target="#demo1" data-slide-to="2"></li>
+                      </ul>
+                      <!-- Carousel inner -->
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div class="d-flex justify-content-between mb-4 pb-2">
+                            <div>
+                              <p class="text-muted mb-0">{{todayDate | date: "EEEE"}}, {{todayDate | date: "d MMMM"}}</p>
+                              <h2 class="display-2"><strong>{{forecasts[0].tMax}}°C</strong></h2>
+                              <p class="text-muted mb-0">{{distrit.local}}, Portugal</p>
+                            </div>
+                            <div>
+                              <img [src]="forecasts[0].img" width="125px">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+        
+                <div class="card mb-4" style="border-radius: 25px;">
+                  <div class="card-body p-4">
+        
+                    <div id="demo2" class="carousel slide" data-ride="carousel">
+                      <!-- Indicators -->
+                      <ul class="carousel-indicators mb-0">
+                        <li data-target="#demo2" data-slide-to="0"></li>
+                        <li data-target="#demo2" data-slide-to="1" class="active"></li>
+                        <li data-target="#demo2" data-slide-to="2"></li>
+                      </ul>
+                      <!-- Carousel inner -->
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div class="d-flex justify-content-around text-center mb-4 pb-3 pt-2">
+                            <div class="flex-column">
+                              <p class="mb-0"><strong>{{todayDate | date: "EEE, d"}}</strong></p>
+                              <img [src]="forecasts[0].img" class="mb-3" width="35" height="35">
+                              <p class="small"><strong>{{forecasts[0].tMax}}°C</strong></p> <!-- Today | Day 1 -->
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Temperatura</p>
+                            </div>
+                            <div class="flex-column">
+                              <p class="mb-0"><strong>{{tomorrowDate | date: "EEE, d"}}</strong></p>
+                              <img [src]="forecasts[1].img" class="mb-3" width="35" height="35">
+                              <p class="small"><strong>{{forecasts[1].tMax}}°C</strong></p> <!-- Tomorrow | Day 2 -->
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Temperatura</p>
+                            </div>
+                            <div class="flex-column">
+                              <p class="mb-0"><strong>{{twoDaysDate | date: "EEE, d"}}</strong></p>
+                              <img [src]="forecasts[2].img" class="mb-3" width="35" height="35">
+                              <p class="small"><strong>{{forecasts[2].tMax}}°C</strong></p> <!-- In 2 Days | Day 3 -->
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Temperatura</p>
+                            </div>
+                            <div class="flex-column">
+                              <p class="mb-0"><strong>{{threeDaysDate | date: "EEE, d"}}</strong></p>
+                              <img [src]="forecasts[3].img" class="mb-3" width="35" height="35">
+                              <p class="small"><strong>{{forecasts[3].tMax}}°C</strong></p> <!-- In 3 Days | Day 4 -->
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Temperatura</p>
+                            </div>
+                            <div class="flex-column">
+                              <p class="mb-0"><strong>{{fourDaysDate | date: "EEE, d"}}</strong></p>
+                              <img [src]="forecasts[4].img" class="mb-3" width="35" height="35">
+                              <p class="small"><strong>{{forecasts[4].tMax}}°C</strong></p> <!-- In 4 Days | Day 5 -->
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Temperatura</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+      
+                <div class="card" style="border-radius: 25px;">
+                  <div class="card-body p-4">
+        
+                    <div id="demo3" class="carousel slide" data-ride="carousel">
+                      <!-- Indicators -->
+                      <ul class="carousel-indicators mb-0">
+                        <li data-target="#demo3" data-slide-to="0"></li>
+                        <li data-target="#demo3" data-slide-to="1"></li>
+                        <li data-target="#demo3" data-slide-to="2" class="active"></li>
+                      </ul>
+                      <!-- Carousel inner -->
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div class="d-flex justify-content-around text-center mb-4 pb-3 pt-2">
+                            <div class="flex-column">
+                              <p class="small"><strong>Precipitação</strong></p>
+                              <img src="assets/images/icons/w_ic_d_13anim.svg" class="mb-3" width="35" height="35">
+                              <p class="mb-0"><strong>{{forecasts[0].precipitaProb}}%</strong></p>
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Probabilidade</p>
+                            </div>
+                            <div class="flex-column">
+                              <p class="small"><strong>Vento</strong></p>
+                              <img src="assets/images/icons/w_ic_d_17anim.svg" class="mb-3" width="35" height="35">
+                              <p class="mb-0"><strong>{{forecasts[0].classWindSpeed}} km/h</strong></p>
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">{{forecasts[0].predWindDir}}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+        
+              </div>
+            </div>
+        
+          </div>
+        </tab>
+
+   <!-- ___________                                               
+        \__    ___/___   _____   __________________  ______  _  __
+          |    | /  _ \ /     \ /  _ \_  __ \_  __ \/  _ \ \/ \/ /
+          |    |(  <_> )  Y Y  (  <_> )  | \/|  | \(  <_> )     / 
+          |____| \____/|__|_|  /\____/|__|   |__|   \____/ \/\_/  
+                             \/                                    -->
+        
+        <tab heading="Tomorrow" id="tab2"> <!-- Tomorrow -->
+          <div class="container py-5 h-100">
+  
+            <div class="row d-flex justify-content-center align-items-center h-100" style="color: #282828;">
+              <div class="col-md-9 col-lg-7 col-xl-5">
+        
+                <div class="card mb-4 gradient-custom" style="border-radius: 25px;">
+                  <div class="card-body p-4">
+        
+                    <div id="demo1" class="carousel slide" data-ride="carousel">
+                      <!-- Indicators -->
+                      <ul class="carousel-indicators mb-0">
+                        <li data-target="#demo1" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo1" data-slide-to="1"></li>
+                        <li data-target="#demo1" data-slide-to="2"></li>
+                      </ul>
+                      <!-- Carousel inner -->
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div class="d-flex justify-content-between mb-4 pb-2">
+                            <div>
+                              <p class="text-muted mb-0">{{tomorrowDate | date: "EEEE"}}, {{tomorrowDate | date: "d MMMM"}}</p>
+                              <h2 class="display-2"><strong>{{forecasts[1].tMax}}°C</strong></h2>
+                              <p class="text-muted mb-0">{{distrit.local}}, Portugal</p>
+                            </div>
+                            <div>
+                              <img [src]="forecasts[1].img" width="125px">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+        
+                <div class="card mb-4" style="border-radius: 25px;">
+                  <div class="card-body p-4">
+        
+                    <div id="demo2" class="carousel slide" data-ride="carousel">
+                      <!-- Indicators -->
+                      <ul class="carousel-indicators mb-0">
+                        <li data-target="#demo2" data-slide-to="0"></li>
+                        <li data-target="#demo2" data-slide-to="1" class="active"></li>
+                        <li data-target="#demo2" data-slide-to="2"></li>
+                      </ul>
+                      <!-- Carousel inner -->
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div class="d-flex justify-content-around text-center mb-4 pb-3 pt-2">
+                            <div class="flex-column">
+                              <p class="mb-0"><strong>{{tomorrowDate | date: "EEE, d"}}</strong></p>
+                              <img [src]="forecasts[1].img" class="mb-3" width="35" height="35">
+                              <p class="small"><strong>{{forecasts[1].tMax}}°C</strong></p> <!-- Tomorrow | Day 2 -->
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Temperatura</p>
+                            </div>
+                            <div class="flex-column">
+                              <p class="mb-0"><strong>{{twoDaysDate | date: "EEE, d"}}</strong></p>
+                              <img [src]="forecasts[2].img" class="mb-3" width="35" height="35">
+                              <p class="small"><strong>{{forecasts[2].tMax}}°C</strong></p> <!-- In 2 Days | Day 3 -->
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Temperatura</p>
+                            </div>
+                            <div class="flex-column">
+                              <p class="mb-0"><strong>{{threeDaysDate | date: "EEE, d"}}</strong></p>
+                              <img [src]="forecasts[3].img" class="mb-3" width="35" height="35">
+                              <p class="small"><strong>{{forecasts[3].tMax}}°C</strong></p> <!-- In 3 Days | Day 4 -->
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Temperatura</p>
+                            </div>
+                            <div class="flex-column">
+                              <p class="mb-0"><strong>{{fourDaysDate | date: "EEE, d"}}</strong></p>
+                              <img [src]="forecasts[4].img" class="mb-3" width="35" height="35">
+                              <p class="small"><strong>{{forecasts[4].tMax}}°C</strong></p> <!-- In 4 Days | Day 5 -->
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Temperatura</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+      
+                <div class="card" style="border-radius: 25px;">
+                  <div class="card-body p-4">
+        
+                    <div id="demo3" class="carousel slide" data-ride="carousel">
+                      <!-- Indicators -->
+                      <ul class="carousel-indicators mb-0">
+                        <li data-target="#demo3" data-slide-to="0"></li>
+                        <li data-target="#demo3" data-slide-to="1"></li>
+                        <li data-target="#demo3" data-slide-to="2" class="active"></li>
+                      </ul>
+                      <!-- Carousel inner -->
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div class="d-flex justify-content-around text-center mb-4 pb-3 pt-2">
+                            <div class="flex-column">
+                              <p class="small"><strong>Precipitação</strong></p>
+                              <img src="assets/images/icons/w_ic_d_13anim.svg" class="mb-3" width="35" height="35">
+                              <p class="mb-0"><strong>{{forecasts[1].precipitaProb}}%</strong></p>
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Probabilidade</p>
+                            </div>
+                            <div class="flex-column">
+                              <p class="small"><strong>Vento</strong></p>
+                              <img src="assets/images/icons/w_ic_d_17anim.svg" class="mb-3" width="35" height="35">
+                              <p class="mb-0"><strong>{{forecasts[1].classWindSpeed}} km/h</strong></p>
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">{{forecasts[1].predWindDir}}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+        
+              </div>
+            </div>
+        
+          </div>
+        </tab>
+
+
+
+
+
+
+
+
+
+        <tab heading="In 2 Days" id="tab3"> <!-- In 2 Days -->
+          <div class="container py-5 h-100">
+  
+            <div class="row d-flex justify-content-center align-items-center h-100" style="color: #282828;">
+              <div class="col-md-9 col-lg-7 col-xl-5">
+        
+                <div class="card mb-4 gradient-custom" style="border-radius: 25px;">
+                  <div class="card-body p-4">
+        
+                    <div id="demo1" class="carousel slide" data-ride="carousel">
+                      <!-- Indicators -->
+                      <ul class="carousel-indicators mb-0">
+                        <li data-target="#demo1" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo1" data-slide-to="1"></li>
+                        <li data-target="#demo1" data-slide-to="2"></li>
+                      </ul>
+                      <!-- Carousel inner -->
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div class="d-flex justify-content-between mb-4 pb-2">
+                            <div>
+                              <p class="text-muted mb-0">{{twoDaysDate | date: "EEEE"}}, {{twoDaysDate | date: "d MMMM"}}</p>
+                              <h2 class="display-2"><strong>{{forecasts[2].tMax}}°C</strong></h2>
+                              <p class="text-muted mb-0">{{distrit.local}}, Portugal</p>
+                            </div>
+                            <div>
+                              <img [src]="forecasts[2].img" width="125px">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+        
+                <div class="card mb-4" style="border-radius: 25px;">
+                  <div class="card-body p-4">
+        
+                    <div id="demo2" class="carousel slide" data-ride="carousel">
+                      <!-- Indicators -->
+                      <ul class="carousel-indicators mb-0">
+                        <li data-target="#demo2" data-slide-to="0"></li>
+                        <li data-target="#demo2" data-slide-to="1" class="active"></li>
+                        <li data-target="#demo2" data-slide-to="2"></li>
+                      </ul>
+                      <!-- Carousel inner -->
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div class="d-flex justify-content-around text-center mb-4 pb-3 pt-2">
+                            <div class="flex-column">
+                              <p class="mb-0"><strong>{{twoDaysDate | date: "EEE, d"}}</strong></p>
+                              <img [src]="forecasts[2].img" class="mb-3" width="35" height="35">
+                              <p class="small"><strong>{{forecasts[2].tMax}}°C</strong></p> <!-- In 2 Days | Day 3 -->
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Temperatura</p>
+                            </div>
+                            <div class="flex-column">
+                              <p class="mb-0"><strong>{{threeDaysDate | date: "EEE, d"}}</strong></p>
+                              <img [src]="forecasts[3].img" class="mb-3" width="35" height="35">
+                              <p class="small"><strong>{{forecasts[3].tMax}}°C</strong></p> <!-- In 3 Days | Day 4 -->
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Temperatura</p>
+                            </div>
+                            <div class="flex-column">
+                              <p class="mb-0"><strong>{{fourDaysDate | date: "EEE, d"}}</strong></p>
+                              <img [src]="forecasts[4].img" class="mb-3" width="35" height="35">
+                              <p class="small"><strong>{{forecasts[4].tMax}}°C</strong></p> <!-- In 4 Days | Day 5 -->
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Temperatura</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+      
+                <div class="card" style="border-radius: 25px;">
+                  <div class="card-body p-4">
+        
+                    <div id="demo3" class="carousel slide" data-ride="carousel">
+                      <!-- Indicators -->
+                      <ul class="carousel-indicators mb-0">
+                        <li data-target="#demo3" data-slide-to="0"></li>
+                        <li data-target="#demo3" data-slide-to="1"></li>
+                        <li data-target="#demo3" data-slide-to="2" class="active"></li>
+                      </ul>
+                      <!-- Carousel inner -->
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div class="d-flex justify-content-around text-center mb-4 pb-3 pt-2">
+                            <div class="flex-column">
+                              <p class="small"><strong>Precipitação</strong></p>
+                              <img src="assets/images/icons/w_ic_d_13anim.svg" class="mb-3" width="35" height="35">
+                              <p class="mb-0"><strong>{{forecasts[2].precipitaProb}}%</strong></p>
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Probabilidade</p>
+                            </div>
+                            <div class="flex-column">
+                              <p class="small"><strong>Vento</strong></p>
+                              <img src="assets/images/icons/w_ic_d_17anim.svg" class="mb-3" width="35" height="35">
+                              <p class="mb-0"><strong>{{forecasts[2].classWindSpeed}} km/h</strong></p>
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">{{forecasts[2].predWindDir}}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+        
+              </div>
+            </div>
+        
+          </div>
+        </tab>
+
+
+
+
+
+
+
+        <tab heading="In 3 Days" id="tab4"> <!-- In 3 Days -->
+          <div class="container py-5 h-100">
+  
+            <div class="row d-flex justify-content-center align-items-center h-100" style="color: #282828;">
+              <div class="col-md-9 col-lg-7 col-xl-5">
+        
+                <div class="card mb-4 gradient-custom" style="border-radius: 25px;">
+                  <div class="card-body p-4">
+        
+                    <div id="demo1" class="carousel slide" data-ride="carousel">
+                      <!-- Indicators -->
+                      <ul class="carousel-indicators mb-0">
+                        <li data-target="#demo1" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo1" data-slide-to="1"></li>
+                        <li data-target="#demo1" data-slide-to="2"></li>
+                      </ul>
+                      <!-- Carousel inner -->
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div class="d-flex justify-content-between mb-4 pb-2">
+                            <div>
+                              <p class="text-muted mb-0">{{threeDaysDate | date: "EEEE"}}, {{threeDaysDate | date: "d MMMM"}}</p>
+                              <h2 class="display-2"><strong>{{forecasts[3].tMax}}°C</strong></h2>
+                              <p class="text-muted mb-0">{{distrit.local}}, Portugal</p>
+                            </div>
+                            <div>
+                              <img [src]="forecasts[3].img" width="125px">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+        
+                <div class="card mb-4" style="border-radius: 25px;">
+                  <div class="card-body p-4">
+        
+                    <div id="demo2" class="carousel slide" data-ride="carousel">
+                      <!-- Indicators -->
+                      <ul class="carousel-indicators mb-0">
+                        <li data-target="#demo2" data-slide-to="0"></li>
+                        <li data-target="#demo2" data-slide-to="1" class="active"></li>
+                        <li data-target="#demo2" data-slide-to="2"></li>
+                      </ul>
+                      <!-- Carousel inner -->
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div class="d-flex justify-content-around text-center mb-4 pb-3 pt-2">
+                            <div class="flex-column">
+                              <p class="mb-0"><strong>{{threeDaysDate | date: "EEE, d"}}</strong></p>
+                              <img [src]="forecasts[3].img" class="mb-3" width="35" height="35">
+                              <p class="small"><strong>{{forecasts[3].tMax}}°C</strong></p> <!-- In 3 Days | Day 4 -->
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Temperatura</p>
+                            </div>
+                            <div class="flex-column">
+                              <p class="mb-0"><strong>{{fourDaysDate | date: "EEE, d"}}</strong></p>
+                              <img [src]="forecasts[4].img" class="mb-3" width="35" height="35">
+                              <p class="small"><strong>{{forecasts[4].tMax}}°C</strong></p> <!-- In 4 Days | Day 5 -->
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Temperatura</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+      
+                <div class="card" style="border-radius: 25px;">
+                  <div class="card-body p-4">
+        
+                    <div id="demo3" class="carousel slide" data-ride="carousel">
+                      <!-- Indicators -->
+                      <ul class="carousel-indicators mb-0">
+                        <li data-target="#demo3" data-slide-to="0"></li>
+                        <li data-target="#demo3" data-slide-to="1"></li>
+                        <li data-target="#demo3" data-slide-to="2" class="active"></li>
+                      </ul>
+                      <!-- Carousel inner -->
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div class="d-flex justify-content-around text-center mb-4 pb-3 pt-2">
+                            <div class="flex-column">
+                              <p class="small"><strong>Precipitação</strong></p>
+                              <img src="assets/images/icons/w_ic_d_13anim.svg" class="mb-3" width="35" height="35">
+                              <p class="mb-0"><strong>{{forecasts[3].precipitaProb}}%</strong></p>
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Probabilidade</p>
+                            </div>
+                            <div class="flex-column">
+                              <p class="small"><strong>Vento</strong></p>
+                              <img src="assets/images/icons/w_ic_d_17anim.svg" class="mb-3" width="35" height="35">
+                              <p class="mb-0"><strong>{{forecasts[3].classWindSpeed}} km/h</strong></p>
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">{{forecasts[3].predWindDir}}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+        
+              </div>
+            </div>
+        
+          </div>
+        </tab>
+
+
+
+
+
+
+
+        <tab heading="In 4 Days" id="tab5"> <!-- In 4 Days -->
+          <div class="container py-5 h-100">
+  
+            <div class="row d-flex justify-content-center align-items-center h-100" style="color: #282828;">
+              <div class="col-md-9 col-lg-7 col-xl-5">
+        
+                <div class="card mb-4 gradient-custom" style="border-radius: 25px;">
+                  <div class="card-body p-4">
+        
+                    <div id="demo1" class="carousel slide" data-ride="carousel">
+                      <!-- Indicators -->
+                      <ul class="carousel-indicators mb-0">
+                        <li data-target="#demo1" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo1" data-slide-to="1"></li>
+                        <li data-target="#demo1" data-slide-to="2"></li>
+                      </ul>
+                      <!-- Carousel inner -->
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div class="d-flex justify-content-between mb-4 pb-2">
+                            <div>
+                              <p class="text-muted mb-0">{{fourDaysDate | date: "EEEE"}}, {{fourDaysDate | date: "d MMMM"}}</p>
+                              <h2 class="display-2"><strong>{{forecasts[4].tMax}}°C</strong></h2>
+                              <p class="text-muted mb-0">{{distrit.local}}, Portugal</p>
+                            </div>
+                            <div>
+                              <img [src]="forecasts[4].img" width="125px">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+      
+                <div class="card" style="border-radius: 25px;">
+                  <div class="card-body p-4">
+        
+                    <div id="demo3" class="carousel slide" data-ride="carousel">
+                      <!-- Indicators -->
+                      <ul class="carousel-indicators mb-0">
+                        <li data-target="#demo3" data-slide-to="0"></li>
+                        <li data-target="#demo3" data-slide-to="1"></li>
+                        <li data-target="#demo3" data-slide-to="2" class="active"></li>
+                      </ul>
+                      <!-- Carousel inner -->
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div class="d-flex justify-content-around text-center mb-4 pb-3 pt-2">
+                            <div class="flex-column">
+                              <p class="small"><strong>Precipitação</strong></p>
+                              <img src="assets/images/icons/w_ic_d_13anim.svg" class="mb-3" width="35" height="35">
+                              <p class="mb-0"><strong>{{forecasts[4].precipitaProb}}%</strong></p>
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">Probabilidade</p>
+                            </div>
+                            <div class="flex-column">
+                              <p class="small"><strong>Vento</strong></p>
+                              <img src="assets/images/icons/w_ic_d_17anim.svg" class="mb-3" width="35" height="35">
+                              <p class="mb-0"><strong>{{forecasts[4].classWindSpeed}} km/h</strong></p>
+                              <p class="mb-0 text-muted" style="font-size: .65rem;">{{forecasts[4].predWindDir}}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+        
+              </div>
+            </div>
+        
+          </div>
+        </tab>
+      </tabset>
+    </div>
+    
+  </section>

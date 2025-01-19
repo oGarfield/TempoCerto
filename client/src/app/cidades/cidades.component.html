@@ -1,0 +1,40 @@
+<app-nav></app-nav>
+<app-search></app-search>
+
+<div class="grid">
+    <section class="" *ngFor="let data of dataForecast">
+      
+            <div class="row d-flex justify-content-center align-items-center h-100" style="color: #282828;">
+                <div class="col-xl-8">
+        
+                    <div class="card mb-4 gradient-custom" style="border-radius: 25px;">
+                            <div [routerLink]="['local-detail', data.globalIdLocal]" class="card-body p-4">
+                
+                            <div id="demo1" class="carousel slide" data-ride="carousel">
+                                <!-- Indicators -->
+                                <ul class="carousel-indicators mb-0">
+                                <li data-target="#demo1" data-slide-to="0" class="active"></li>
+                                <li data-target="#demo1" data-slide-to="1"></li>
+                                <li data-target="#demo1" data-slide-to="2"></li>
+                                </ul>
+                                <!-- Carousel inner -->
+                                <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="d-flex justify-content-between mb-4 pb-2">
+                                    <div>
+                                        <h2 class="display-2"><strong>{{data.tMax}}°C</strong></h2>
+                                        <p class="text-muted mb-0"><strong>{{data.local.local}}</strong>, Portugal</p>
+                                    </div>
+                                    <div>
+                                        <img [src]="data.img" alt="" width="125">
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>    
+</div>

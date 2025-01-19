@@ -1,0 +1,23 @@
+<div class="center mb-4">
+    <div class="input-group rounded">
+      <div class="form-outline">
+        <input
+          id="typeahead-basic"
+          type="text"
+          class="form-control"
+          [(ngModel)]="model"
+          [ngbTypeahead]="search"
+          placeholder="Procurar cidade..."
+        />
+      </div>
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="onSearchSelect(model)"
+        [disabled]="!model"
+      >
+        <fa-icon [icon]="faSearch"></fa-icon>
+      </button>
+    </div>
+  </div>
+  
