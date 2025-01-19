@@ -72,6 +72,57 @@ O servidor estará disponível em: [http://localhost:4200](http://localhost:4200
 
 ---
 
+## **Como Utilizar a Imagem Docker**
+
+Pode executar facilmente a aplicação utilizando Docker seguindo estes passos:
+
+### **1. Obter a Imagem Docker**
+Faça o download da imagem pré-construída do Docker Hub:
+```bash
+docker pull <docker-username>/tempo-certo:latest
+```
+
+Substitua `<docker-username>` pelo nome de utilizador da sua conta Docker Hub.
+
+### **2. Executar o Contêiner Docker**
+Inicie o contêiner Docker para executar a aplicação:
+```bash
+docker run -d -p 8080:80 --name tempo-certo-app <docker-username>/tempo-certo:latest
+```
+
+**Explicação**:
+- `-d`: Executa o contêiner em modo "detached" (em segundo plano).
+- `-p 8080:80`: Mapeia a porta 8080 do seu computador para a porta 80 no contêiner (onde a aplicação está a ser executada).
+- `--name tempo-certo-app`: Atribui um nome ao contêiner.
+
+### **3. Aceder à Aplicação**
+Abra o navegador e aceda ao seguinte endereço:
+```
+http://localhost:8080
+```
+
+A aplicação deverá ser apresentada no navegador.
+
+### **4. Parar o Contêiner Docker**
+Para parar o contêiner, utilize:
+```bash
+docker stop tempo-certo-app
+```
+
+### **5. Reexecutar o Contêiner**
+Se parou o contêiner mas deseja reiniciá-lo sem fazer novo download da imagem:
+```bash
+docker start tempo-certo-app
+```
+
+### **6. Remover o Contêiner Docker**
+Se já não precisar do contêiner, pode removê-lo com o seguinte comando:
+```bash
+docker rm tempo-certo-app
+```
+
+---
+
 ## **Como Funciona o Programa**
 1. **Estrutura Angular**:
    - O programa é dividido em componentes (e.g., `home`, `map`, `local-detail`) para facilitar a organização e reutilização do código.
